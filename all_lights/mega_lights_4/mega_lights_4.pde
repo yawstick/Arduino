@@ -1,0 +1,94 @@
+int x;
+int z= 50;
+int t= 20;
+int w= 50;
+int b = 0;
+int rnd = 2;
+ 
+ 
+ 
+void setup()
+    {
+      uint8_t i;
+      randomSeed(analogRead(0));
+  Serial.begin(115200);
+  Serial.println("Ready...");
+  pinMode(40, INPUT);
+  pinMode(41, INPUT);
+  pinMode(42, INPUT);
+  pinMode(43, INPUT);
+  pinMode(44, INPUT);
+  pinMode(45, INPUT);
+  pinMode(46, INPUT);
+  pinMode(47, INPUT);
+  pinMode(48, INPUT);
+  pinMode(49, INPUT);
+  pinMode(50, INPUT);
+  pinMode(51, INPUT);
+  pinMode(52, INPUT);
+  pinMode(53, INPUT);
+  
+  digitalWrite(40, LOW);
+  digitalWrite(41, LOW);
+  digitalWrite(42, LOW);
+  digitalWrite(43, LOW);
+  digitalWrite(44, LOW);
+  digitalWrite(45, LOW);
+  digitalWrite(46, LOW);
+  digitalWrite(47, HIGH);
+  digitalWrite(48, HIGH);
+  digitalWrite(49, HIGH);
+  digitalWrite(50, HIGH);
+  digitalWrite(51, HIGH);
+  digitalWrite(52, HIGH);
+  digitalWrite(53, HIGH);
+  
+  
+  
+    }
+
+void loop()  {  
+   for(int x = 2; x < 13; x = x + 1){
+   rnd = x;
+   //rnd = random(2, 13);
+   flash();
+   readinput();
+   }
+   for(int x = 11 ; x !=2; x = x - 1){
+     rnd = x;
+     flash();
+     readinput();
+   }
+   //readinput();
+   
+}
+
+void flash() {
+   
+    for(int x = 2; x < 175; x = x + 15){
+       analogWrite(rnd, x);
+       delay(z);
+  }
+    for(int x = 175 ; x =0; x = x - 15){
+       analogWrite(rnd, x);
+       delay(t);
+  }
+    analogWrite(rnd, 0);
+     delay(w); 
+}
+
+void readinput() {
+  
+  for(int x = 40; x < 53; x = x + 1){
+    b = digitalRead(x);
+     Serial.print(x);
+      Serial.print("  ");
+      Serial.println(b);
+      delay(10);
+  }
+  Serial.println();
+  delay(500);
+}    
+    
+    
+  
