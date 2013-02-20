@@ -1,5 +1,3 @@
-#include <Servo.h>
-
 // Self balancing Mini robot with 4 motors.//
 //    Created by Arkadi Rafalovich    ///////
 //      Last Update 16.01.2013//////////////
